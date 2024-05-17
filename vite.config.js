@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
-      name: "react-chatbotify",
+      name: "ascending-react-chatbotify",
       fileName: "index",
       formats: ["es", "cjs"],
     },

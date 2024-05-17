@@ -1,17 +1,19 @@
 {
-  "name": "react-chatbotify",
-  "homepage": "https://react-chatbotify.tjtanjin.com",
+  "name": "ascending-react-chatbotify",
+  "homepage": "https://github.com/LeesinChen/react-chatbotify",
   "keywords": [
     "react",
     "chat",
     "chatbot",
     "conversational-bot",
-    "frontend-library"
+    "frontend-library",
+    "ascending-react-chatbotify",
+    "react-chatbotify"
   ],
   "files": [
     "./dist"
   ],
-  "version": "1.6.0",
+  "version": "1.0.0",
   "description": "A modern React library for creating a flexible and extensible chatbot.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -40,7 +42,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tjtanjin/react-chatbotify"
+    "url": "https://github.com/LeesinChen/react-chatbotify"
   },
   "devDependencies": {
     "@types/dom-speech-recognition": "^0.0.4",

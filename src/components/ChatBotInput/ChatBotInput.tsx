@@ -140,7 +140,8 @@ const ChatBotInput = ({
 
 		if (inputRef.current) {
 			const characterLimit = botOptions.chatInput?.characterLimit
-			const newInput = event.target.value.replace(/\n/g, " ");
+			const formatValue = botOptions.chatInput?.inputValueFormat
+			const newInput = formatValue ? event.target.value.replace(/\n/g, " ") : event.target.value;
 			if (characterLimit != null && characterLimit >= 0 && newInput.length > characterLimit) {
 				inputRef.current.value = newInput.slice(0, characterLimit);
 			} else {
