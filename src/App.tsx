@@ -109,10 +109,13 @@ function App() {
 						flow={flow}
 						options={{
 							audio: {disabled: false},
-							chatInput: {botDelay: 1000},
+							chatInput: {
+								botDelay: 1000,
+								defaultInputValue: 'default value A \ndefault value b'
+							},
 							userBubble: {showAvatar: true},
 							botBubble: {showAvatar: true},
-							voice: {disabled: false}
+							voice: {disabled: false},
 						}}
 					></ChatBot>
 				</div>

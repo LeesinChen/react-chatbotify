@@ -108,6 +108,13 @@ const ChatBotContainer = ({ flow }: { flow: Flow }) => {
 		window.addEventListener("keydown", handleFirstInteraction);
 		window.addEventListener("touchstart", handleFirstInteraction);
 
+		// set input default value
+		if (botOptions.chatInput?.defaultInputValue) {
+			if (inputRef.current) {
+				inputRef.current.value = botOptions.chatInput?.defaultInputValue;
+			}
+		}
+
 		setUpNotifications();
 		setTextAreaDisabled(botOptions.chatInput?.disabled as boolean);
 		setAudioToggledOn(botOptions.audio?.defaultToggledOn as boolean);
@@ -725,28 +732,46 @@ const ChatBotContainer = ({ flow }: { flow: Flow }) => {
 				className="rcb-chat-window"
 			>
 				{botOptions.theme?.showHeader &&
-					<ChatBotHeader notificationToggledOn={notificationToggledOn} 
+					<ChatBotHeader
+						notificationToggledOn={notificationToggledOn}
 						handleToggleNotification={handleToggleNotification}
-						audioToggledOn={audioToggledOn} handleToggleAudio={handleToggleAudio}
+						audioToggledOn={audioToggledOn}
+						handleToggleAudio={handleToggleAudio}
 					/>
 				}
-				<ChatBotBody chatBodyRef={chatBodyRef} isBotTyping={isBotTyping}
-					isLoadingChatHistory={isLoadingChatHistory} chatScrollHeight={chatScrollHeight}
-					setChatScrollHeight={setChatScrollHeight} setIsLoadingChatHistory={setIsLoadingChatHistory}
-					isScrolling={isScrolling} setIsScrolling={setIsScrolling}
-					unreadCount={unreadCount} setUnreadCount={setUnreadCount}
+				<ChatBotBody
+					chatBodyRef={chatBodyRef}
+					isBotTyping={isBotTyping}
+					isLoadingChatHistory={isLoadingChatHistory}
+					chatScrollHeight={chatScrollHeight}
+					setChatScrollHeight={setChatScrollHeight}
+					setIsLoadingChatHistory={setIsLoadingChatHistory}
+					isScrolling={isScrolling}
+					setIsScrolling={setIsScrolling}
+					unreadCount={unreadCount}
+					setUnreadCount={setUnreadCount}
 				/>
 				{botOptions.theme?.showInputRow &&
-					<ChatBotInput handleToggleVoice={handleToggleVoice} handleActionInput={handleActionInput} 
-						inputRef={inputRef} textAreaDisabled={textAreaDisabled}
+					<ChatBotInput
+						handleToggleVoice={handleToggleVoice}
+						handleActionInput={handleActionInput}
+						inputRef={inputRef}
+						textAreaDisabled={textAreaDisabled}
 						textAreaSensitiveMode={textAreaSensitiveMode}
-						voiceToggledOn={voiceToggledOn} getCurrPath={getCurrPath}
+						voiceToggledOn={voiceToggledOn}
+						getCurrPath={getCurrPath}
 					/>
 				}
 				{botOptions.theme?.showFooter &&
-					<ChatBotFooter inputRef={inputRef} flow={flow} textAreaDisabled={textAreaDisabled} 
-						handleActionInput={handleActionInput} injectMessage={injectMessage}
-						streamMessage={streamMessage} getCurrPath={getCurrPath} getPrevPath={getPrevPath}
+					<ChatBotFooter
+						inputRef={inputRef}
+						flow={flow}
+						textAreaDisabled={textAreaDisabled}
+						handleActionInput={handleActionInput}
+						injectMessage={injectMessage}
+						streamMessage={streamMessage}
+						getCurrPath={getCurrPath}
+						getPrevPath={getPrevPath}
 						openChat={openChat}
 					/>
 				}
